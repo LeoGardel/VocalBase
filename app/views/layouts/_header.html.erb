@@ -15,9 +15,9 @@
 				<% else %>
 					<%= render 'devise/sessions/new' %>
 				<% end %>
+				<%= link_to_function "Não é cadastrado?", "#", class: "nao-cadastrado" %>
+				<div id="popover-cadastro" style="display: none;"><%= render 'devise/registrations/new' %></div>
 			</div>
-			<%= link_to_function "Não é cadastrado?", "#", class: "nao-cadastrado" %>
-			<div id="popover-cadastro" style="display: none;"><%= render 'devise/registrations/new' %></div>
 		</div>
 	</div>
 </div>
