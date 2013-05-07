@@ -30,6 +30,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'devise'
 gem 'simple_form'
+gem 'carmen-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
