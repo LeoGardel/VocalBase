@@ -1,0 +1,27 @@
+@import "bootstrap.min.css";
+
+body {
+	margin-top: 100px;
+}
+
+
+.login-form {
+	color: #999;
+}
+
+.login-form-input {
+	margin-top: 7px;
+	margin-right: 10px;
+}
+
+.nao-cadastrado {
+	position: absolute;
+	left: 100%;
+	margin-left: -215px;
+	top: 100%;
+	margin-top: -25px;
+}
+
+.cadastro-radio {
+	margin-top: -5px;
+}

@@ -1,0 +1,5 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'login-form' }) do |f| %>
+	E-mail: <%= f.email_field :email, class: 'login-form-input' %>
+	Senha: <%= f.password_field :password, class: 'login-form-input' %>
+	<%= f.submit "Entrar", class: 'btn login-form-submit', style: "margin-top: -4px; margin-left: 10px;" %>
+<% end %>
