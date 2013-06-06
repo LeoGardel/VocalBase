@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20130507184328) do
 
-  create_table "arquivo_texto", :force => true do |t|
+  create_table "arquivos_texto", :force => true do |t|
     t.integer "usuario_id",  :null => false
     t.string  "titulo",      :null => false
     t.string  "autor",       :null => false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20130507184328) do
     t.string  "texto"
   end
 
-  create_table "arquivo_texto_e_voz", :force => true do |t|
+  create_table "arquivos_texto_e_voz", :force => true do |t|
     t.integer "usuario_id",  :null => false
     t.string  "titulo",      :null => false
     t.string  "autor",       :null => false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20130507184328) do
     t.string  "voz",         :null => false
   end
 
-  create_table "arquivo_voz", :force => true do |t|
+  create_table "arquivos_voz", :force => true do |t|
     t.integer "usuario_id",               :null => false
     t.string  "palavra",                  :null => false
     t.binary  "genero",                   :null => false

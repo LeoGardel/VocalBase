@@ -1,6 +1,6 @@
 class AddTableArquivos < ActiveRecord::Migration
   def change
-    create_table(:arquivo_voz) do |t|
+    create_table(:arquivos_voz) do |t|
 
       t.integer :usuario_id,				:null => false
       t.string :palavra,					:null => false
@@ -13,7 +13,7 @@ class AddTableArquivos < ActiveRecord::Migration
       t.string :frequencia_de_amostragem	
 
     end
-    create_table(:arquivo_texto) do |t|
+    create_table(:arquivos_texto) do |t|
 
       t.integer :usuario_id,				:null => false
       t.string :titulo,						:null => false
@@ -24,7 +24,7 @@ class AddTableArquivos < ActiveRecord::Migration
       t.string :texto
 
     end
-    create_table(:arquivo_texto_e_voz) do |t|
+    create_table(:arquivos_texto_e_voz) do |t|
 
       t.integer :usuario_id,				:null => false
       t.string :titulo,						:null => false

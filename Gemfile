@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 group :development, :test do
   gem 'sqlite3'
   gem 'pry'
+  gem 'annotate'
 end
 
 group :production do
@@ -30,7 +31,6 @@ gem 'carrierwave'
 gem 'fog'
 gem 'devise'
 gem 'simple_form'
-gem 'carmen-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

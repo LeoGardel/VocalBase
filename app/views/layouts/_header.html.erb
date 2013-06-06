@@ -15,7 +15,7 @@
 				<% else %>
 					<%= render 'devise/sessions/new' %>
 				<% end %>
-				<%= link_to_function "Não é cadastrado?", "#", class: "nao-cadastrado" %>
+				<%= link_to_function "Não é cadastrado?", "#", id: "nao-cadastrado" %>
 				<div id="popover-cadastro" style="display: none;"><%= render 'devise/registrations/new' %></div>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 </div>
 
 <script type="text/javascript">
-	$('.nao-cadastrado').popover({
+	$('#nao-cadastrado').popover({
 		title: '<h2 style="margin: 0px;">Cadastre-se:</h2>',
 		html: true,
 		content: function() {

@@ -12,10 +12,10 @@
 <%= f.radio_button :genero, 2, style: "margin-left: 5px; margin-right: 5px; margin-top: -2px;" %><%= f.label :genero, "Feminino", style: "display: inline;" %></div>
 
 <div style="margin-top: 10px;"><%= f.label :pais, "País:" %>
-<%= f.country_select :pais, {priority: %w(BR)}, prompt: "Selecione seu país" %></div>
+<%= f.select :pais, PAISES_ESTADOS.keys.map {|x| x.to_s}, prompt: "-- Selecione seu país" %></div>
 
 <div><%= f.label :estado, "Estado:" %>
-<%= f.text_field :estado %></div>
+<%= render partial: 'pais_estado/estado_select', locals: {parent_region: f.object.pais ||= ""} %></div>
 
 <div><%= f.label :email, "E-mail:" %>
 <%= f.email_field :email %></div>
@@ -25,3 +25,15 @@
 
 <div><%= f.submit "Registrar", class: 'btn' %></div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("select#user_pais").change(function(event){
+    select_wrapper = $('#user_estado_wrapper');
+    $('select', select_wrapper).attr('disabled', true);
+    country_code = $(this).val().replace(/ /g, "_");
+    url = "/estado_select?parent_region="+country_code;
+    select_wrapper.load(url);
+  })
+});
+</script>
