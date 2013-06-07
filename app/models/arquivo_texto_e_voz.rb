@@ -15,4 +15,6 @@
 
 class ArquivoTextoEVoz < ArquivoTexto
   attr_accessible :voz, :texto, :idioma, :categoria, :complemento, :autor, :titulo
+
+  belongs_to :user
 end

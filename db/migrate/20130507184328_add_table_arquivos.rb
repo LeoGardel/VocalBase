@@ -2,7 +2,7 @@ class AddTableArquivos < ActiveRecord::Migration
   def change
     create_table(:arquivos_voz) do |t|
 
-      t.integer :usuario_id,				:null => false
+      t.integer :user_id,				:null => false
       t.string :palavra,					:null => false
       t.binary :genero,						:null => false
       t.string :idioma,						:null => false
@@ -15,7 +15,7 @@ class AddTableArquivos < ActiveRecord::Migration
     end
     create_table(:arquivos_texto) do |t|
 
-      t.integer :usuario_id,				:null => false
+      t.integer :user_id,				:null => false
       t.string :titulo,						:null => false
       t.string :autor,						:null => false
       t.string :complemento
@@ -26,7 +26,7 @@ class AddTableArquivos < ActiveRecord::Migration
     end
     create_table(:arquivos_texto_e_voz) do |t|
 
-      t.integer :usuario_id,				:null => false
+      t.integer :user_id,				:null => false
       t.string :titulo,						:null => false
       t.string :autor,						:null => false
       t.string :complemento
