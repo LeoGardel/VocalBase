@@ -1,0 +1,61 @@
+<div class="row-fluid">
+	<div class="well span12 center offset2">
+		<h1>Selecione abaixo o tipo de arquivo que deseja fazer upload:</h1>
+	</div>
+</div>
+
+<div class="row-fluid">
+	<div class="span12 offset2">
+		<div id="type1" class="well span5">
+			<h1>Palavra</h1>
+			<p>O arquivo de som deverá corresponder a exatamente uma palavra</p>
+			<ul>
+				<li>Treinar sistemas de reconhecimento de voz</li>
+				<li>Treinar sistemas de reprodução de voz</li>
+				<li>Criar uma base de palavras para um sistema</li>
+			</ul>
+			<%= link_to "Fazer Upload", new_arquivo_voz_path, class: "btn btn-primary pull-right", id: "upload-bt1" %>
+		</div>
+
+		<div id="type2" class="well span6">
+			<h1>Texto com Voz</h1>
+			<p>O arquivo deve conter um texto sendo lido</p>
+			<p>Usos:</p>
+			<ul>
+				<li>Audiobooks</li>
+				<li>Testar sistemas de reconhecimento de voz</li>
+			</ul>
+			<%= link_to "Fazer Upload", new_arquivo_texto_e_voz_path, class: "btn btn-primary pull-right", id: "upload-bt2" %>
+		</div>
+
+		<div id="type3" class="well span5">
+			<h1>Texto apenas</h1>
+			<p>Neste caso você deve enviar apenas um arquivo de texto</p>
+			<p>Usos:</p>
+			<ul>
+				<li>Testar sistemas de reconhecimento de voz</li>
+				<li>Testar sistemas de reprodução de voz</li>
+			</ul>
+			<%= link_to "Fazer Upload", new_arquivo_texto_path, class: "btn btn-primary pull-right", id: "upload-bt3" %>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		heights = [$("#type1").height(), $("#type2").height(), $("#type3").height()];
+		max = 0;
+		for (var i = 0; i < heights.length; i++) {
+			if (heights[i] > max) {
+				max = heights[i];
+			};
+		};
+		
+		$("#type1").height(max);
+		$("#upload-bt1").css("margin-top", max - heights[0] + "px");
+		$("#type2").height(max);
+		$("#upload-bt2").css("margin-top", max - heights[1] + "px");
+		$("#type3").height(max);
+		$("#upload-bt3").css("margin-top", max - heights[2] + "px");
+	});
+</script>

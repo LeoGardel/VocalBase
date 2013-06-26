@@ -1,0 +1,34 @@
+<div class="row-fluid">
+	<div class="well span6 offset5">
+		<h1>Cadastro de palavra:</h1>
+		<%= simple_form_for @arquivo_voz do |f| %>
+			
+			<h3>Informações técnicas:</h3>
+			<%= f.input :palavra, label: "Palavra:" %>
+			<%= f.input :voz, label: "Arquivo de Voz:", as: :file %>
+			<%= f.input :frequencia_de_amostragem, label: "Frequência de amostragem:", placeholder: "opcional" %>
+			<div class="dica">* Em Hertz</div>
+			<h3>Informações adicionais:</h3>
+			<%= f.input :genero, label: "Gênero:", collection: ["Masculino", "Feminino"], as: :radio_buttons %>
+			<%= f.input :idioma, collection: LINGUAS, prompt: "-- Selecione seu idioma" %>
+			<%= f.input :pais, label: "País:", collection: PAISES_ESTADOS.keys.map {|x| x.to_s}, selected: f.object.pais %>
+			<%= f.label :estado, "Estado:" %>
+			<%= render partial: 'pais_estado/estado_select', locals: {parent_region: f.object.pais ||= "", type: :arquivo_voz, selected: f.object.estado} %>
+			<%= f.button :submit, "Cadastrar arquivo", class: "btn btn-primary" %>
+
+		<% end %>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("select#arquivo_voz_pais").change(function(event){
+			select_wrapper = $('.estado_wrapper');
+			$('select', select_wrapper).attr('disabled', true);
+			country_code = $(this).val().replace(/ /g, "_");
+			type = "arquivo_voz"
+			url = "/estado_select?parent_region="+country_code+"&type=" + type;
+			select_wrapper.load(url);
+		})
+	});
+</script>

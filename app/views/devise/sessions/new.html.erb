@@ -1,0 +1,11 @@
+<div class="row-fluid">	
+	<div class="well span6 offset5">
+		<h1>Fazer Login:</h1>
+		<%= simple_form_for @user, url: user_session_path do |f| %>
+			<%= f.input :email, label: "E-mail:" %>
+			<%= f.input :password, label: "Senha:" %>
+			<%= f.button :submit, "Entrar", class: "btn btn-primary pull-right" %>
+		<% end %>
+		<%= link_to "Não é cadastrado?", new_user_registration_path %>
+	</div>
+</div>

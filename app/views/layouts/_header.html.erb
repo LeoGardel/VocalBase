@@ -1,22 +1,22 @@
 <div class="navbar navbar-fixed-top navbar-inverse">
 	<div class="navbar-inner">
-		<div class="container">
-			<div style="margin-top: 20px;">
-				<%= link_to "Vocal Base", root_path, class: "brand" %>
-				<ul class="nav">
-					<li><%= link_to "Upload" %></li>
-					<li><%= link_to "Pesquisa" %></li>
-				</ul>
-			</div>
+		<div class="some_margin">
+			<%= link_to "Vocal Base", root_path, class: "brand" %>
+			<ul class="nav" style="margin-left: -40px;">
+				<li><%= link_to "Upload", upload_path %></li>
+				<li><%= link_to "Pesquisa" %></li>
+			</ul>
 
-			<div class="pull-right" style="margin-top: -2px;">
+			<div class="pull-right right_nav_part">
 				<% if user_signed_in? %>
-					<%= current_user.email %>
+					<p><%= "Logged in as #{current_user.email}" %></p>
 				<% else %>
-					<%= render 'devise/sessions/new' %>
+					<div class="new_session">
+						<%= render 'devise/sessions/new' %>
+					</div>
+					<%= link_to_function "Não é cadastrado?", "#", id: "nao-cadastrado" %>
+					<div id="popover-cadastro"><%= render 'devise/registrations/new' %></div>
 				<% end %>
-				<%= link_to_function "Não é cadastrado?", "#", id: "nao-cadastrado" %>
-				<div id="popover-cadastro" style="display: none;"><%= render 'devise/registrations/new' %></div>
 			</div>
 		</div>
 	</div>

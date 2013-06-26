@@ -1,12 +1,22 @@
-<div id="user_estado_wrapper">
+<div class="estado_wrapper">
   <% parent_region ||= params[:parent_region] %>
   <% parent_region.gsub!("_", " ") %>
+  <% type ||= params[:type].to_sym %>
+  <% selected = nil if !params[:type].nil? %>
 
   <% if parent_region == "" %>
     <em>Por favor selecione um país</em>
   <% elsif PAISES_ESTADOS[parent_region.to_sym].length != 0 %>
-    <%= select(:user, :estado, PAISES_ESTADOS[parent_region.to_sym], prompt: "-- Selecione seu estado") %>
+  	<% if selected.nil? %>
+	    <%= select type, :estado, PAISES_ESTADOS[parent_region.to_sym], prompt: "-- Selecione seu estado" %>
+	  <% else %>
+  		<%= select type, :estado, collection: PAISES_ESTADOS[parent_region.to_sym], selected: selected %>
+  	<% end %>
   <% else %>
-    <%= text_field(:user, :estado) %>
+  	<% if selected.nil? %>
+    	<%= text_field type, :estado %>
+    <% else %>
+    	<%= text_field type, :estado, selected %>
+    <% end %>
   <% end %>
 </div>

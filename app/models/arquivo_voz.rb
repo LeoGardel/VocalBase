@@ -1,3 +1,5 @@
+# -*- encoding : utf-8 -*-
+
 # == Schema Information
 #
 # Table name: arquivo_voz
@@ -18,4 +20,8 @@ class ArquivoVoz < ActiveRecord::Base
   attr_accessible :palavra, :genero, :idioma, :pais, :estado, :frequencia_de_amostragem, :formato, :voz
 
   belongs_to :user
+
+  mount_uploader :voz, ArquivoVozUploader
+
+  validates_presence_of :palavra, :idioma, :pais, :estado, :genero, :formato, :voz
 end

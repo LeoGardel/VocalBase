@@ -14,35 +14,35 @@
 ActiveRecord::Schema.define(:version => 20130507184328) do
 
   create_table "arquivos_texto", :force => true do |t|
-    t.integer "user_id",     :null => false
-    t.string  "titulo",      :null => false
-    t.string  "autor",       :null => false
+    t.integer "user_id"
+    t.string  "titulo"
+    t.string  "autor"
     t.string  "complemento"
     t.string  "categoria"
-    t.string  "idioma",      :null => false
+    t.string  "idioma"
     t.string  "texto"
   end
 
   create_table "arquivos_texto_e_voz", :force => true do |t|
-    t.integer "user_id",     :null => false
-    t.string  "titulo",      :null => false
-    t.string  "autor",       :null => false
+    t.integer "user_id"
+    t.string  "titulo"
+    t.string  "autor"
     t.string  "complemento"
     t.string  "categoria"
-    t.string  "idioma",      :null => false
+    t.string  "idioma"
     t.string  "texto"
-    t.string  "voz",         :null => false
+    t.string  "voz"
   end
 
   create_table "arquivos_voz", :force => true do |t|
-    t.integer "user_id",                  :null => false
-    t.string  "palavra",                  :null => false
-    t.binary  "genero",                   :null => false
-    t.string  "idioma",                   :null => false
+    t.integer "user_id"
+    t.string  "palavra"
+    t.binary  "genero"
+    t.string  "idioma"
     t.string  "pais"
     t.string  "estado"
-    t.string  "formato",                  :null => false
-    t.string  "voz",                      :null => false
+    t.string  "formato"
+    t.string  "voz"
     t.string  "frequencia_de_amostragem"
   end
 
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(:version => 20130507184328) do
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.integer  "sign_in_count",          :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"

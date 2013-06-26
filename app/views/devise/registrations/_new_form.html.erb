@@ -1,0 +1,26 @@
+<%= simple_form_for @user, url: user_registration_path do |f| %>
+<%# devise_error_messages! %>
+	<%= f.input :nome, label: "Nome:", autofocus: true %>
+	<%= f.input :sobrenome, label: "Sobrenome:" %>
+	<%= f.input :genero, label: "Gênero:", collection: ["Masculino", "Feminino"], as: :radio_buttons %>
+	<%= f.input :pais, label: "País:", collection: PAISES_ESTADOS.keys.map {|x| x.to_s}, prompt: "-- Selecione seu país", class: "user_pais" %>
+
+	<div><%= f.label :estado, "Estado:" %>
+	<%= render partial: 'pais_estado/estado_select', locals: {parent_region: f.object.pais ||= "", type: :user} %></div>
+	<%= f.input :email, label: "E-mail:" %>
+	<%= f.input :password, label: "Senha:" %>
+	<%= f.button :submit, "Registrar", class: "btn btn-primary" %>
+<% end %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("select#user_pais").change(function(event){
+    select_wrapper = $('.estado_wrapper');
+    $('select', select_wrapper).attr('disabled', true);
+    country_code = $(this).val().replace(/ /g, "_");
+    type = "user"
+    url = "/estado_select?parent_region="+country_code+"&type="+type;
+    select_wrapper.load(url);
+  })
+});
+</script>
