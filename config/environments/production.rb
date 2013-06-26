@@ -66,7 +66,7 @@ VocalBase::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   #SMTP
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }  
+  config.action_mailer.default_url_options = { :host => 'vocalbase.herokuapp.com' }  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
