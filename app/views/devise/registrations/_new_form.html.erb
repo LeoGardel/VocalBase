@@ -1,15 +1,15 @@
 <%= simple_form_for @user, url: user_registration_path do |f| %>
 <%# devise_error_messages! %>
-	<%= f.input :nome, label: "Nome:", autofocus: true %>
-	<%= f.input :sobrenome, label: "Sobrenome:" %>
+	<%= f.input :nome, label: false, placeholder: "Nome...", autofocus: true %>
+	<%= f.input :sobrenome, label: false, placeholder: "Sobrenome..." %>
 	<%= f.input :genero, label: "Gênero:", collection: ["Masculino", "Feminino"], as: :radio_buttons %>
 	<%= f.input :pais, label: "País:", collection: PAISES_ESTADOS.keys.map {|x| x.to_s}, prompt: "-- Selecione seu país", class: "user_pais" %>
 
-	<div><%= f.label :estado, "Estado:" %>
+	<div><%= f.label :estado, label: "Estado:" %>
 	<%= render partial: 'pais_estado/estado_select', locals: {parent_region: f.object.pais ||= "", type: :user} %></div>
-	<%= f.input :email, label: "E-mail:" %>
-	<%= f.input :password, label: "Senha:" %>
-	<%= f.button :submit, "Registrar", class: "btn btn-primary" %>
+	<%= f.input :email, label: false, placeholder: "E-mail...", wrapper_html: {style: "margin-top: 10px;"} %>
+	<%= f.input :password, label: false, placeholder: "Senha..." %>
+	<%= f.button :submit, "Registrar", class: "btn btn-primary", style: "margin-top: 0px; margin-left: 135px;" %>
 <% end %>
 
 <script type="text/javascript">
